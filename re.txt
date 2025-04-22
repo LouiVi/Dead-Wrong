@@ -1,0 +1,10 @@
+var counter = -1;
+		var song = app.ReadFile( "song.txt" ).split("\n");
+		
+    Sing = function()
+    {
+        counter+=1;
+        app.ShowPopup( song[counter] );
+        txt.SetHtml(song[counter] );
+        app.TextToSpeech( song[counter], 0.72, 1.4075, ()=>{if(counter<song.length) self.Sing();} );
+    }
